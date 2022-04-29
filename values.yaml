@@ -5,7 +5,7 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-test:
+config:
   test: TEST_VAL
   production: "false"
   backend_url: BACKEND_URL

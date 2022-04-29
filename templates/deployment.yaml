@@ -18,9 +18,9 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           volumeMounts:
           - name: config
-            mountPath: "/configs.json"
+            mountPath: "/config.json"
             subPath: config.json
       volumes:
         - name: config
           configMap:
-            name: game-demo
+            name: json-config
