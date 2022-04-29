@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-demo
+data:
+  config.json: {{ .Values.test | toPrettyJson | quote }}

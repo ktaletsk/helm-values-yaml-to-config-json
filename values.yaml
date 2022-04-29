@@ -1,0 +1,25 @@
+image:
+  repository: nginx
+  tag: ""
+
+nameOverride: ""
+fullnameOverride: ""
+
+test:
+  test: TEST_VAL
+  production: "false"
+  backend_url: BACKEND_URL
+  jupyterhub_url: JUPYTERHUB_URL
+  services:
+    auth:
+      responseType: RESPONSE_TYPE
+      url: URL
+      clientId: CLIENT_ID
+      clientSecret: CLIENT_SECRET
+      redirectUrl: REDIRECT_URL
+      tenant: TENANT
+    logging:
+      url: SERVICES_LOG_URL
+      application: SERVICES_LOG_APP
+      environment: SERVICES_LOG_ENV
+      subTag: SERVICES_LOG_TAG

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "json.fullname" . }}
+  labels:
+    {{- include "json.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "json.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "json.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          volumeMounts:
+          - name: config
+            mountPath: "/configs.json"
+            subPath: config.json
+      volumes:
+        - name: config
+          configMap:
+            name: game-demo
